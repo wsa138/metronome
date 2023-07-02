@@ -5,11 +5,15 @@ import {
   signInWithRedirect,
   signOut,
 } from 'firebase/auth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const SignIn = () => {
   const [user, setUser] = useState({});
   const auth = getAuth();
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   async function handleGoogleSignIn() {
     try {
@@ -25,7 +29,7 @@ const SignIn = () => {
     try {
       signOut(auth);
       setUser({});
-      console.log('Signed Out');
+      console.log('Signed Out', user);
     } catch (error) {
       console.log(error);
     }
@@ -35,8 +39,11 @@ const SignIn = () => {
 
   return (
     <div>
-      <button onClick={handleGoogleSignIn}>Sign In</button>
-      <button onClick={handleGoogleSignOut}>Sign Out</button>
+      {!user.displayName ? (
+        <button onClick={handleGoogleSignIn}>Sign In</button>
+      ) : (
+        <button onClick={handleGoogleSignOut}>Sign Out</button>
+      )}
       <div>{user.displayName}</div>
     </div>
   );
