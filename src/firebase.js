@@ -3,12 +3,12 @@ import { GoogleAuthProvider } from 'firebase/auth';
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyCW4DqffUchwenN_yHniDxWciMd6Tp9Dck',
-  authDomain: 'to-do-app-v2-b549a.firebaseapp.com',
-  projectId: 'to-do-app-v2-b549a',
-  storageBucket: 'to-do-app-v2-b549a.appspot.com',
-  messagingSenderId: '872073924922',
-  appId: '1:872073924922:web:226009856a2eda82f20003',
+  apiKey: 'AIzaSyB1OEB5T8l8Z0i1FVlozVW5DsZyTXrSVrU',
+  authDomain: 'metronome-5a32f.firebaseapp.com',
+  projectId: 'metronome-5a32f',
+  storageBucket: 'metronome-5a32f.appspot.com',
+  messagingSenderId: '322085738063',
+  appId: '1:322085738063:web:8b983c5750b4010397fc3a',
 };
 
 const app = initializeApp(firebaseConfig);
