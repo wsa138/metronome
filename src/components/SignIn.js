@@ -19,7 +19,7 @@ const SignIn = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       setUser(result.user);
-      console.log('Signed In', result.user);
+      console.log('Signed In');
     } catch (error) {
       console.log(error);
     }
