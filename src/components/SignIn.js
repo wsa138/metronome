@@ -7,12 +7,11 @@ import {
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 
-const SignIn = () => {
-  const [user, setUser] = useState({});
+const SignIn = ({ user, setUser }) => {
   const auth = getAuth();
 
   useEffect(() => {
-    console.log(user);
+    console.log('User change from SignIn.js user');
   }, [user]);
 
   async function handleGoogleSignIn() {
@@ -29,13 +28,11 @@ const SignIn = () => {
     try {
       signOut(auth);
       setUser({});
-      console.log('Signed Out', user);
+      console.log('Signed Out');
     } catch (error) {
       console.log(error);
     }
   }
-
-  // If not signed in, show sign in button, and opposite.
 
   return (
     <div>
