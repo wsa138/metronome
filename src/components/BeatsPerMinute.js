@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 
-const BeatsPerMinute = () => {
+const BeatsPerMinute = ({ bpm, setBPM }) => {
   const [beats, setBeats] = useState(0);
   const [beatTime, setBeatTime] = useState({ lastTime: 0, seconds: 0 });
-  const [bpm, setBPM] = useState(0);
 
   useEffect(() => {
     calculateBPM(beatTime.seconds, beats);
