@@ -9,6 +9,7 @@ const List = ({ userUID, db }) => {
     const listRef = ref(db);
     onValue(listRef, (snapshot) => {
       if (userUID === null) {
+        setList('No data');
         return;
       }
       const data = snapshot.val().Users[userUID].beatsPerMinute;
