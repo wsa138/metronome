@@ -1,5 +1,6 @@
 import BeatsPerMinute from '../components/BeatsPerMinute';
 import SignIn from '../components/SignIn';
+import List from '../components/List';
 import { getDatabase, ref, onValue, set } from 'firebase/database';
 import { useEffect, useState } from 'react';
 
@@ -29,7 +30,7 @@ export const Home = () => {
     });
   };
 
-  const readDatabase = () => {
+  const readDatabaseLog = () => {
     const data = ref(db);
     onValue(data, (snapshot) => {
       // Catch if there is no database(Realtime Database defaults to null when delted)
@@ -53,7 +54,8 @@ export const Home = () => {
       </h2>
       <BeatsPerMinute bpm={bpm} setBPM={setBPM} />
       <button onClick={addToDatabase}>AddToDatabase</button>
-      <button onClick={readDatabase}>ReadDatabase</button>
+      <button onClick={readDatabaseLog}>ReadDatabase</button>
+      <List userUID={userUID} db={db} />
     </div>
   );
 };
