@@ -16,6 +16,7 @@ export const Home = () => {
     setUserUID(user.uid ? user.uid : null);
   }, [user]);
 
+  // TODO: Build a form to replace this.
   const addToDatabase = () => {
     // If no userUID, return
     if (userUID === null) {
@@ -30,6 +31,7 @@ export const Home = () => {
     });
   };
 
+  // TODO: Can remove this once I feel confident in List.js reading data.
   const readDatabaseLog = () => {
     const data = ref(db);
     onValue(data, (snapshot) => {
