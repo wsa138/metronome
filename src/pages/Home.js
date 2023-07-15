@@ -59,7 +59,7 @@ export const Home = () => {
       <button onClick={addToDatabase}>AddToDatabase</button>
       <button onClick={readDatabaseLog}>ReadDatabase</button>
       <List userUID={userUID} db={db} />
-      <Form />
+      <Form bpm={bpm} />
     </div>
   );
 };
