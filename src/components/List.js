@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ref, onValue } from 'firebase/database';
 
+// TODO: This component doesn't work
 const List = ({ userUID, db }) => {
   const [list, setList] = useState('No data');
 
@@ -13,7 +14,7 @@ const List = ({ userUID, db }) => {
         return;
       }
       // TODO: Instead of setting it to beatsPerMinute I need to iterate the object and create the list.
-      const data = snapshot.val().Users[userUID].beatsPerMinute;
+      const data = snapshot.val().Users[userUID];
       setList(data);
     });
   }, [userUID]);

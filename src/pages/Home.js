@@ -1,6 +1,5 @@
 import BeatsPerMinute from '../components/BeatsPerMinute';
 import SignIn from '../components/SignIn';
-import List from '../components/List';
 import Form from '../components/Form';
 import { getDatabase, ref, onValue, set } from 'firebase/database';
 import { useEffect, useState } from 'react';
@@ -57,7 +56,6 @@ export const Home = () => {
       </h2>
       <BeatsPerMinute bpm={bpm} setBPM={setBPM} />
       <button onClick={readDatabaseLog}>ReadDatabase</button>
-      <List userUID={userUID} db={db} />
       {userUID === null ? null : <Form bpm={bpm} userUID={userUID} db={db} />}
     </div>
   );
