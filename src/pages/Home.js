@@ -56,10 +56,9 @@ export const Home = () => {
         <SignIn user={user} setUser={setUser} />
       </h2>
       <BeatsPerMinute bpm={bpm} setBPM={setBPM} />
-      <button onClick={addToDatabase}>AddToDatabase</button>
       <button onClick={readDatabaseLog}>ReadDatabase</button>
       <List userUID={userUID} db={db} />
-      <Form bpm={bpm} />
+      <Form bpm={bpm} userUID={userUID} db={db} />
     </div>
   );
 };

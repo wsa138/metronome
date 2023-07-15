@@ -8,6 +8,7 @@ const BeatsPerMinute = ({ bpm, setBPM }) => {
     calculateBPM(beatTime.seconds, beats);
   }, [beatTime, beats]);
 
+  // TODO: Reset if no click for 5 seconds or add reset button.
   const handleBeatClick = () => {
     setBeats((oldBeats) => oldBeats + 1);
     setBeatTime((prevBeatTime) => {

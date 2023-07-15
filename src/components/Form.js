@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { ref, set } from 'firebase/database';
 
-const Form = ({ bpm }) => {
+const Form = ({ bpm, userUID, db }) => {
   const [newBPM, setNewBPM] = useState(0);
   const [title, setTitle] = useState('');
 
@@ -8,10 +9,18 @@ const Form = ({ bpm }) => {
     setNewBPM(bpm);
   }, [bpm]);
 
-  // TODO: Functionality to add to database
+  // Add new BPM to database if a user is signed in.
   const addBPM = (e) => {
     e.preventDefault();
-    console.log('Adding new BPM');
+    if (userUID === null) {
+      console.log('No user found');
+      return;
+    }
+    // Find matching userUID and add BPM value to database
+    console.log('Updating user database');
+    set(ref(db, 'Users/' + userUID), {
+      title: newBPM,
+    });
     resetForm();
   };
 
