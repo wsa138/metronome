@@ -19,7 +19,8 @@ const Form = ({ bpm, userUID, db }) => {
     // Find matching userUID and add BPM value to database
     console.log('Updating user database');
     set(ref(db, 'Users/' + userUID), {
-      title: newBPM,
+      title: title,
+      beatsPerMinute: newBPM,
     });
     resetForm();
   };

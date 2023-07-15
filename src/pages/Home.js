@@ -42,7 +42,7 @@ export const Home = () => {
         return;
       }
       if (user.uid in snapshot.val().Users) {
-        console.log(snapshot.val().Users[userUID].beatsPerMinute);
+        console.log(snapshot.val().Users[userUID]);
       } else {
         console.log('UID not found');
       }
@@ -58,7 +58,7 @@ export const Home = () => {
       <BeatsPerMinute bpm={bpm} setBPM={setBPM} />
       <button onClick={readDatabaseLog}>ReadDatabase</button>
       <List userUID={userUID} db={db} />
-      <Form bpm={bpm} userUID={userUID} db={db} />
+      {userUID === null ? null : <Form bpm={bpm} userUID={userUID} db={db} />}
     </div>
   );
 };

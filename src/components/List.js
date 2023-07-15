@@ -12,6 +12,7 @@ const List = ({ userUID, db }) => {
         setList('No data');
         return;
       }
+      // TODO: Instead of setting it to beatsPerMinute I need to iterate the object and create the list.
       const data = snapshot.val().Users[userUID].beatsPerMinute;
       setList(data);
     });
