@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ref, set } from 'firebase/database';
+import { ref, set, child, push, update } from 'firebase/database';
 
 const Form = ({ bpm, userUID, db }) => {
   const [newBPM, setNewBPM] = useState(0);
@@ -20,11 +20,15 @@ const Form = ({ bpm, userUID, db }) => {
     // TODO: Use firebase doc update functionlity instead of writing to parent user.
     console.log('Updating user database');
     // TODO: Create seprate functionality for first time user creation in databse.
-    set(ref(db, 'Users/' + userUID), {
-      title: title,
-      beatsPerMinute: newBPM,
-    });
+    const newTrackKey = push(child(ref(db), 'Users')).key;
+    const updates = {};
+    updates['/Users/' + userUID + '/' + newTrackKey] = {
+      trackName: title,
+      tempo: newBPM,
+    };
+    console.log(updates);
     resetForm();
+    return update(ref(db), updates);
   };
 
   const handleManualBPM = (e) => {
