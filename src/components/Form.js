@@ -17,7 +17,9 @@ const Form = ({ bpm, userUID, db }) => {
       return;
     }
     // Find matching userUID and add BPM value to database
+    // TODO: Use firebase doc update functionlity instead of writing to parent user.
     console.log('Updating user database');
+    // TODO: Create seprate functionality for first time user creation in databse.
     set(ref(db, 'Users/' + userUID), {
       title: title,
       beatsPerMinute: newBPM,
