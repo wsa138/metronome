@@ -1,6 +1,7 @@
 import BeatsPerMinute from '../components/BeatsPerMinute';
 import SignIn from '../components/SignIn';
 import List from '../components/List';
+import Form from '../components/Form';
 import { getDatabase, ref, onValue, set } from 'firebase/database';
 import { useEffect, useState } from 'react';
 
@@ -24,7 +25,7 @@ export const Home = () => {
       return;
     }
     // Find matching userUID and add BPM value to database
-    console.log('Adding user to database');
+    console.log('Updating users database');
 
     set(ref(db, 'Users/' + userUID), {
       beatsPerMinute: bpm,
@@ -58,6 +59,7 @@ export const Home = () => {
       <button onClick={addToDatabase}>AddToDatabase</button>
       <button onClick={readDatabaseLog}>ReadDatabase</button>
       <List userUID={userUID} db={db} />
+      <Form />
     </div>
   );
 };
