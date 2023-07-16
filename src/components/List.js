@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ref, onValue } from 'firebase/database';
+import { ref, onValue, remove } from 'firebase/database';
 
 // TODO: This component doesn't work
 const List = ({ userUID, db }) => {
@@ -13,7 +13,6 @@ const List = ({ userUID, db }) => {
         setList([]);
         return;
       }
-      // TODO: Instead of setting it to beatsPerMinute I need to iterate the object and create the list.
       const data = snapshot.val().Users[userUID];
       setList(createJSX(data));
     });
@@ -23,9 +22,15 @@ const List = ({ userUID, db }) => {
     let listArr = [];
     for (const childObj in dataObj) {
       listArr.push(
-        <div key={dataObj[childObj].trackName} onClick={handleDelete}>
-          <div>{dataObj[childObj].trackName}</div>
-          <div>{dataObj[childObj].tempo}</div>
+        <div
+          className={Object.keys(dataObj)}
+          key={dataObj[childObj].trackName}
+          onClick={handleDelete}
+        >
+          <div className={Object.keys(dataObj)}>
+            {dataObj[childObj].trackName}
+          </div>
+          <div className={Object.keys(dataObj)}>{dataObj[childObj].tempo}</div>
         </div>
       );
     }
@@ -34,7 +39,7 @@ const List = ({ userUID, db }) => {
 
   const handleDelete = (e) => {
     console.log('delete');
-    console.log(e.target.innerHTML);
+    console.log(e.target.className);
   };
 
   return (
