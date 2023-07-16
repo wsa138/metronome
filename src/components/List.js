@@ -23,23 +23,29 @@ const List = ({ userUID, db }) => {
     for (const childObj in dataObj) {
       listArr.push(
         <div
-          className={Object.keys(dataObj)}
+          className={Object.keys(dataObj)[0]}
           key={dataObj[childObj].trackName}
           onClick={handleDelete}
         >
-          <div className={Object.keys(dataObj)}>
+          <div className={Object.keys(dataObj)[0]}>
             {dataObj[childObj].trackName}
           </div>
-          <div className={Object.keys(dataObj)}>{dataObj[childObj].tempo}</div>
+          <div className={Object.keys(dataObj)[0]}>
+            {dataObj[childObj].tempo}
+          </div>
         </div>
       );
     }
     return listArr;
   };
 
+  // Deletes entry using the class name to identify the entry.
   const handleDelete = (e) => {
     console.log('delete');
-    console.log(e.target.className);
+    let entryID = e.target.className;
+    console.log(entryID);
+    let deleteRef = ref(db, 'Users/' + userUID + '/' + entryID);
+    remove(deleteRef);
   };
 
   return (
