@@ -23,7 +23,7 @@ const List = ({ userUID, db }) => {
     let listArr = [];
     for (const childObj in dataObj) {
       listArr.push(
-        <div key={dataObj[childObj].trackName}>
+        <div key={dataObj[childObj].trackName} onClick={handleDelete}>
           <div>{dataObj[childObj].trackName}</div>
           <div>{dataObj[childObj].tempo}</div>
         </div>
@@ -32,13 +32,14 @@ const List = ({ userUID, db }) => {
     return listArr;
   };
 
-  function test() {
-    console.log(list);
-  }
+  const handleDelete = (e) => {
+    console.log('delete');
+    console.log(e.target.innerHTML);
+  };
 
   return (
     <div>
-      <div onClick={test}>List:</div>
+      <div>List:</div>
       <div>{list}</div>
     </div>
   );
