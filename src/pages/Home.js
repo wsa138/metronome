@@ -12,24 +12,8 @@ export const Home = () => {
 
   // Update userUID state whenever a new user signs in or out.
   useEffect(() => {
-    console.log('setting uid');
     setUserUID(user.uid ? user.uid : null);
   }, [user]);
-
-  // TODO: Build a form to replace this.
-  const addToDatabase = () => {
-    // If no userUID, return
-    if (userUID === null) {
-      console.log('No user found');
-      return;
-    }
-    // Find matching userUID and add BPM value to database
-    console.log('Updating users database');
-
-    set(ref(db, 'Users/' + userUID), {
-      beatsPerMinute: bpm,
-    });
-  };
 
   // TODO: Can remove this once I feel confident in List.js reading data.
   const readDatabaseLog = () => {

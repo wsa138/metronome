@@ -5,14 +5,9 @@ import {
   signInWithRedirect,
   signOut,
 } from 'firebase/auth';
-import { useEffect, useState } from 'react';
 
 const SignIn = ({ user, setUser }) => {
   const auth = getAuth();
-
-  useEffect(() => {
-    console.log('User change from SignIn.js user');
-  }, [user]);
 
   async function handleGoogleSignIn() {
     try {

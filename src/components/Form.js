@@ -10,23 +10,20 @@ const Form = ({ bpm, userUID, db }) => {
   }, [bpm]);
 
   // Add new BPM to database if a user is signed in.
-  const addBPM = (e) => {
+  const addTrack = (e) => {
     e.preventDefault();
     if (userUID === null) {
       console.log('No user found');
       return;
     }
     // Find matching userUID and add BPM value to database
-    // TODO: Use firebase doc update functionlity instead of writing to parent user.
-    console.log('Updating user database');
-    // TODO: Create seprate functionality for first time user creation in databse.
+    console.log('Adding new track to database');
     const newTrackKey = push(child(ref(db), 'Users')).key;
     const updates = {};
     updates['/Users/' + userUID + '/' + newTrackKey] = {
       trackName: title,
       tempo: newBPM,
     };
-    console.log(updates);
     resetForm();
     return update(ref(db), updates);
   };
@@ -41,7 +38,7 @@ const Form = ({ bpm, userUID, db }) => {
 
   const resetForm = () => {
     setNewBPM(0);
-    setTitle(0);
+    setTitle('');
   };
 
   return (
@@ -67,7 +64,7 @@ const Form = ({ bpm, userUID, db }) => {
           ></input>
         </div>
 
-        <button onClick={addBPM}>Add</button>
+        <button onClick={addTrack}>Add</button>
         <div>{bpm}</div>
         <div>{title}</div>
       </form>
