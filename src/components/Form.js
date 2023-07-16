@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ref, set, child, push, update } from 'firebase/database';
 
-const Form = ({ bpm, userUID, db }) => {
+const Form = ({ bpm, userUID, db, setBPM }) => {
   const [newBPM, setNewBPM] = useState(0);
   const [title, setTitle] = useState('');
 
@@ -25,6 +25,7 @@ const Form = ({ bpm, userUID, db }) => {
       tempo: newBPM,
     };
     resetForm();
+    setBPM(0);
     return update(ref(db), updates);
   };
 

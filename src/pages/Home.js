@@ -23,7 +23,9 @@ export const Home = () => {
         <SignIn user={user} setUser={setUser} />
       </h2>
       <BeatsPerMinute bpm={bpm} setBPM={setBPM} />
-      {userUID === null ? null : <Form bpm={bpm} userUID={userUID} db={db} />}
+      {userUID === null ? null : (
+        <Form bpm={bpm} setBPM={setBPM} userUID={userUID} db={db} />
+      )}
       <List userUID={userUID} db={db} />
     </div>
   );
