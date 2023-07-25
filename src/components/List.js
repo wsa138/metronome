@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ref, onValue, remove } from 'firebase/database';
-import Audio from './Audio';
 
-// TODO: This component doesn't work
 const List = ({ userUID, db }) => {
   const [list, setList] = useState([]);
 
@@ -34,7 +32,6 @@ const List = ({ userUID, db }) => {
           <div className={Object.keys(dataObj)[0]}>
             {dataObj[childObj].tempo}
           </div>
-          <Audio />
         </div>
       );
     }
