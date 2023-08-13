@@ -32,9 +32,19 @@ const SignIn = ({ user, setUser }) => {
   return (
     <div>
       {!user.displayName ? (
-        <button onClick={handleGoogleSignIn}>Sign In</button>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={handleGoogleSignIn}
+        >
+          Sign In
+        </button>
       ) : (
-        <button onClick={handleGoogleSignOut}>Sign Out</button>
+        <button
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          onClick={handleGoogleSignOut}
+        >
+          Sign Out
+        </button>
       )}
       <div>{user.displayName}</div>
     </div>
