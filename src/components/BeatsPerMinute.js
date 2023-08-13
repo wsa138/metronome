@@ -22,16 +22,23 @@ const BeatsPerMinute = ({ bpm, setBPM }) => {
     });
   };
 
+  const handleReset = () => {
+    setBeats(0);
+    setBeatTime({ lastTime: 0, seconds: 0 });
+    setBPM(0);
+  };
+
   const calculateBPM = (time, beats) => {
     if (time === 0) {
       return;
     }
-    setBPM(((beats - 1) / time) * 60);
+    setBPM(Math.round(((beats - 1) / time) * 60));
   };
 
   return (
     <div>
       <button onClick={handleBeatClick}>BPM</button>
+      <button onClick={handleReset}>Reset</button>
       <div>{bpm}</div>
     </div>
   );
