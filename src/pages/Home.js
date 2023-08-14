@@ -17,8 +17,8 @@ export const Home = () => {
   }, [user]);
 
   return (
-    <div>
-      <h1 className="text-3xl">Home</h1>
+    <div className="bg-grey  h-screen pt-3 space-y-3">
+      <h1 className="text-3xl font-bold">BPM Calculator</h1>
       <h2>
         <SignIn user={user} setUser={setUser} />
       </h2>

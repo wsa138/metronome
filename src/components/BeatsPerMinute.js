@@ -37,8 +37,18 @@ const BeatsPerMinute = ({ bpm, setBPM }) => {
 
   return (
     <div>
-      <button onClick={handleBeatClick}>BPM</button>
-      <button onClick={handleReset}>Reset</button>
+      <button
+        className="bg-gradient-to-r from-gray-700 via-gray-200 to-gray-700 py-10 px-9 rounded-full"
+        onClick={handleBeatClick}
+      >
+        BPM
+      </button>
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white  font-bold py-4 px-2 rounded-full"
+        onClick={handleReset}
+      >
+        Reset
+      </button>
       <div>{bpm}</div>
     </div>
   );
