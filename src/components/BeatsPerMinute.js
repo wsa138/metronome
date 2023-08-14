@@ -36,20 +36,24 @@ const BeatsPerMinute = ({ bpm, setBPM }) => {
   };
 
   return (
-    <div>
-      <button
-        className="bg-gradient-to-r from-gray-700 via-gray-200 to-gray-700 py-10 px-9 rounded-full"
-        onClick={handleBeatClick}
-      >
-        BPM
-      </button>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white  font-bold py-4 px-2 rounded-full"
-        onClick={handleReset}
-      >
-        Reset
-      </button>
-      <div>{bpm}</div>
+    <div className="bg-red-500">
+      <div className="flex justify-center text-3xl">
+        <div>{bpm}</div>
+      </div>
+      <div className="bg-green-500 flex flex-col justify-around items-center">
+        <button
+          className="mt-2 bg-gradient-to-r from-gray-700 via-gray-200 to-gray-700 py-12 px-5 rounded-full text-5xl font-bold"
+          onClick={handleBeatClick}
+        >
+          BPM
+        </button>
+        <button
+          className="mt-2 bg-blue-500 hover:bg-blue-700 text-white text-xl  font-bold py-1 px-7 rounded-full"
+          onClick={handleReset}
+        >
+          Reset
+        </button>
+      </div>
     </div>
   );
 };
