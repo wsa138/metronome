@@ -65,9 +65,12 @@ const Form = ({ bpm, userUID, db, setBPM }) => {
           ></input>
         </div>
 
-        <button onClick={addTrack}>Add</button>
-        <div>{bpm}</div>
-        <div>{title}</div>
+        <button
+          className="mt-2 bg-blue-500 hover:bg-blue-700 text-white text-xl  font-bold py-1 px-5 rounded-full"
+          onClick={addTrack}
+        >
+          Add
+        </button>
       </form>
     </div>
   );

@@ -22,16 +22,12 @@ const List = ({ userUID, db }) => {
     for (const childObj in dataObj) {
       listArr.push(
         <div
-          className={Object.keys(dataObj)[0]}
+          className={childObj}
           key={dataObj[childObj].trackName}
           onClick={handleDelete}
         >
-          <div className={Object.keys(dataObj)[0]}>
-            {dataObj[childObj].trackName}
-          </div>
-          <div className={Object.keys(dataObj)[0]}>
-            {dataObj[childObj].tempo}
-          </div>
+          <div className={childObj}>{dataObj[childObj].trackName}</div>
+          <div className={childObj}>{dataObj[childObj].tempo}</div>
         </div>
       );
     }
@@ -40,6 +36,7 @@ const List = ({ userUID, db }) => {
 
   // Deletes entry using the class name to identify the entry.
   const handleDelete = (e) => {
+    console.log(e.target);
     console.log('delete');
     let entryID = e.target.className;
     console.log(entryID);
@@ -49,7 +46,7 @@ const List = ({ userUID, db }) => {
 
   return (
     <div>
-      <div>List:</div>
+      <div className="text-2xl font-bold">Songs:</div>
       <div>{list}</div>
     </div>
   );
