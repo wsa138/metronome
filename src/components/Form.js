@@ -55,7 +55,7 @@ const Form = ({ bpm, userUID, db, setBPM }) => {
             onChange={handleTitleChange}
             type="text"
             name="title"
-            maxLength={24}
+            maxLength={23}
           ></input>
         </div>
 

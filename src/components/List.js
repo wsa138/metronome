@@ -27,10 +27,16 @@ const List = ({ userUID, db }) => {
           key={dataObj[childObj].trackName}
           onClick={handleDelete}
         >
-          <div id={childObj} className={`${childObj} text-xl font-semibold`}>
+          <div
+            id={childObj}
+            className={`text-xl font-semibold bg-white rounded-md pl-1`}
+          >
             {dataObj[childObj].trackName}
           </div>
-          <div id={childObj} className={`${childObj} text-xl font-semibold`}>
+          <div
+            id={childObj}
+            className={`text-xl font-semibold bg-gray-300 rounded-md pl-1`}
+          >
             {dataObj[childObj].tempo}
           </div>
         </div>
