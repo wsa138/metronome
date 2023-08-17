@@ -42,7 +42,7 @@ const BeatsPerMinute = ({ bpm, setBPM }) => {
       </div>
       <div className=" flex flex-col justify-around items-center">
         <button
-          className="mt-2 text-black bg-gradient-to-r from-gray-700 via-gray-200 to-gray-700 py-12 px-5 rounded-full text-5xl font-bold shadow-xl hover:shadow-lg transition-all transform active:scale-95 duration-100"
+          className="mt-2 text-black bg-gradient-to-br from-gray-500 via-gray-200 to-gray-700 py-12 px-5 rounded-full text-5xl font-bold shadow-xl hover:shadow-lg transition-all transform active:scale-95 duration-100"
           onClick={handleBeatClick}
         >
           BPM
