@@ -46,7 +46,9 @@ const List = ({ userUID, db }) => {
 
   return (
     <div>
-      <div className="text-2xl font-bold">Songs:</div>
+      <div className="text-2xl font-bold">
+        {list.length > 0 ? 'Songs:' : null}
+      </div>
       <div>{list}</div>
     </div>
   );

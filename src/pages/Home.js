@@ -17,9 +17,9 @@ export const Home = () => {
   }, [user]);
 
   return (
-    <div className="bg-grey  h-screen pt-3 space-y-3">
+    <div className="bg-black text-white  h-screen pt-3 space-y-3">
       <div className="flex justify-around">
-        <h1 className="text-3xl font-bold">BPM Calculator</h1>
+        <h1 className="text-3xl font-extrabold md:text-4xl">BPM Calculator</h1>
         <h2>
           <SignIn user={user} setUser={setUser} />
         </h2>

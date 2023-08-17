@@ -36,11 +36,11 @@ const BeatsPerMinute = ({ bpm, setBPM }) => {
   };
 
   return (
-    <div className="bg-red-500">
-      <div className="flex justify-center text-3xl">
+    <div className="">
+      <div className="flex justify-center text-3xl font-semibold">
         <div>{bpm}</div>
       </div>
-      <div className="bg-green-500 flex flex-col justify-around items-center">
+      <div className=" flex flex-col justify-around items-center">
         <button
           className="mt-2 bg-gradient-to-r from-gray-700 via-gray-200 to-gray-700 py-12 px-5 rounded-full text-5xl font-bold"
           onClick={handleBeatClick}

@@ -45,9 +45,12 @@ const Form = ({ bpm, userUID, db, setBPM }) => {
   return (
     <div>
       <form>
-        <div>
-          <label htmlFor="title">Title</label>
+        <div className="flex flex-col m-1">
+          <label className="text-lg" htmlFor="title">
+            Title:
+          </label>
           <input
+            className="bg-gray-300 text-black w-52 m-1"
             value={title}
             onChange={handleTitleChange}
             type="text"
@@ -55,9 +58,12 @@ const Form = ({ bpm, userUID, db, setBPM }) => {
           ></input>
         </div>
 
-        <div>
-          <label htmlFor="beatsPerMinute">Beats Per Minute:</label>
+        <div className="flex flex-col m-1">
+          <label className="text-lg" htmlFor="beatsPerMinute">
+            Beats Per Minute:
+          </label>
           <input
+            className="bg-gray-300 text-black w-52 m-1"
             value={newBPM}
             onChange={handleManualBPM}
             type="number"
