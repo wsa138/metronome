@@ -50,11 +50,12 @@ const Form = ({ bpm, userUID, db, setBPM }) => {
             Title:
           </label>
           <input
-            className="bg-gray-300 text-black w-52 m-1"
+            className="bg-gray-100 text-black w-52 m-1 pl-1 text-xl"
             value={title}
             onChange={handleTitleChange}
             type="text"
             name="title"
+            maxLength={24}
           ></input>
         </div>
 
@@ -63,7 +64,7 @@ const Form = ({ bpm, userUID, db, setBPM }) => {
             Beats Per Minute:
           </label>
           <input
-            className="bg-gray-300 text-black w-52 m-1"
+            className="bg-gray-100 text-black w-52 m-1 pl-1 text-xl"
             value={newBPM}
             onChange={handleManualBPM}
             type="number"
@@ -72,7 +73,7 @@ const Form = ({ bpm, userUID, db, setBPM }) => {
         </div>
 
         <button
-          className="mt-2 bg-blue-500 hover:bg-blue-700 text-white text-xl  font-bold py-1 px-5 rounded-full"
+          className="mt-2 bg-blue-500 hover:bg-blue-700 text-white text-xl  font-bold py-1 px-5 rounded-full transition-all transform active:scale-95 duration-100"
           onClick={addTrack}
         >
           Add

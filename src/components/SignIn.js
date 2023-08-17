@@ -33,14 +33,14 @@ const SignIn = ({ user, setUser }) => {
     <div className="">
       {!user.displayName ? (
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-all transform active:scale-95 duration-100"
           onClick={handleGoogleSignIn}
         >
           Sign In
         </button>
       ) : (
         <button
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition-all transform active:scale-95 duration-100"
           onClick={handleGoogleSignOut}
         >
           Logout

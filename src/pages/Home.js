@@ -17,18 +17,25 @@ export const Home = () => {
   }, [user]);
 
   return (
-    <div className="bg-black text-white  h-screen pt-3 space-y-3">
+    <div className="bg-black text-white  h-screen pt-3 space-y-3 ">
       <div className="flex justify-around">
-        <h1 className="text-3xl font-extrabold md:text-4xl">BPM Calculator</h1>
+        <h1 className="text-3xl font-extrabold md:text-4xl bg-gradient-to-r from-gray-400 via-white to-gray-400 text-transparent bg-clip-text inline">
+          BPM Calculator
+        </h1>
         <h2>
           <SignIn user={user} setUser={setUser} />
         </h2>
       </div>
       <BeatsPerMinute bpm={bpm} setBPM={setBPM} />
-      {userUID === null ? null : (
-        <Form bpm={bpm} setBPM={setBPM} userUID={userUID} db={db} />
-      )}
-      <List userUID={userUID} db={db} />
+      <div class=" flex flex-col items-center">
+        {userUID === null ? null : (
+          <Form bpm={bpm} setBPM={setBPM} userUID={userUID} db={db} />
+        )}
+
+        <div class=" flex flex-col w-72 p-1">
+          <List userUID={userUID} db={db} />
+        </div>
+      </div>
     </div>
   );
 };
